@@ -4,6 +4,7 @@ class Album
   define_method(:initialize) do |title, year|
     @title = title
     @year = year
+    @id = @@albums.length().+(1)
   end
 
   define_method(:get_title) do
@@ -20,6 +21,14 @@ class Album
 
   define_singleton_method(:all) do
     @@albums
+  end
+
+  define_singleton_method(:clear) do
+    @@albums = []
+  end
+
+  define_method(:get_id) do
+    @id
   end
 
 end

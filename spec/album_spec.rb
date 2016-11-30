@@ -2,6 +2,9 @@ require('rspec')
 require('album')
 
 describe(Album) do
+  before() do
+    Album.clear()
+  end
 
   describe('#get_title') do
     it('returns album title') do
@@ -31,5 +34,14 @@ describe(Album) do
     end
   end
 
+  describe("get_id") do
+    it("returns the id of album") do
+      test_album = Album.new("Trouble Will Find Me", 2013)
+      test_album.save()
+      test_album2 = Album.new("Bloom", 2012)
+      test_album2.save()
+      expect(test_album.get_id()).to(eq(1))
+    end
+  end
 
 end
