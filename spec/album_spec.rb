@@ -34,13 +34,23 @@ describe(Album) do
     end
   end
 
-  describe("get_id") do
+  describe("#get_id") do
     it("returns the id of album") do
       test_album = Album.new("Trouble Will Find Me", 2013)
       test_album.save()
       test_album2 = Album.new("Bloom", 2012)
       test_album2.save()
       expect(test_album.get_id()).to(eq(1))
+    end
+  end
+
+  describe(".find") do
+    it('returns the id of an album') do
+      test_album = Album.new("Trouble Will Find Me", 2013)
+      test_album.save()
+      test_album2 = Album.new("Bloom", 2012)
+      test_album2.save()
+      expect(Album.find(test_album.get_id())).to(eq(test_album))
     end
   end
 
