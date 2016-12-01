@@ -1,0 +1,10 @@
+<h3>Here are all the albums this artist has authored:</h3>
+
+<ul>
+  <% (@album.all()).each() do |artist| %>
+    <li><a href="/artist/<%= artist.id() %>"><%= artist.name() %></a></li>
+  <% end %>
+</ul>
+
+
+<a href="/">Return to Main Page</a>
