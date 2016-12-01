@@ -48,7 +48,7 @@ end
 
 # Dynamic pages for artists
 get('/artists/:id') do
-  @album = Album.find(params.fetch('id').to_i())
+  @artist = Artist.find_it(params.fetch('id').to_i())
   erb(:artist)
 end
 
